@@ -15,6 +15,8 @@ initRoutes(app);
 app.use("/", express.static("./client/build"));
 
 const port = 3333;
-app.listen(port, () => {});
+app.listen(port, () => {
+  console.log("port: http://localhost:3333/");
+});
 
 export { app };
