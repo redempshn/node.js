@@ -10,4 +10,36 @@ const router = Router();
 
 // TODO: Implement route controllers for fighter
 
+router.post(
+  "/fighters",
+  createFighterValid,
+  async (req, res, next) => {
+    try {
+      const fighter = await fighterService.create(req.body);
+      res.data = fighter;
+    } catch (error) {
+      res.err = error;
+    } finally {
+      next();
+    }
+  },
+  responseMiddleware
+);
+
+router.patch(
+  "/fighters/:id",
+  updateFighterValid,
+  async (req, res, next) => {
+    try {
+      const fighter = await fighterService.update(req.body);
+      res.data = fighter;
+    } catch (error) {
+      res.err = error;
+    } finally {
+      next();
+    }
+  },
+  responseMiddleware
+);
+
 export { router };

@@ -3,6 +3,15 @@ import express from "express";
 import { initRoutes } from "./routes/routes.js";
 
 import "./config/db.js";
+import {
+  createUserValid,
+  updateUserValid,
+} from "./middlewares/user.validation.middleware.js";
+import { responseMiddleware } from "./middlewares/response.middleware.js";
+import {
+  createFighterValid,
+  updateFighterValid,
+} from "./middlewares/fighter.validation.middleware.js";
 
 const app = express();
 

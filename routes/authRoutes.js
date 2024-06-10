@@ -9,8 +9,9 @@ router.post(
   async (req, res, next) => {
     try {
       // TODO: Implement login action (get the user if it exist with entered credentials)
-      const newUser = await authService.create(req.body);
-      res.data = newUser;
+      const user = authService.login(req.body);
+
+      res.data = user;
     } catch (err) {
       res.err = err;
     } finally {
